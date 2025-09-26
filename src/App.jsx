@@ -77,16 +77,47 @@ const App = () => {
             </div>
           </div>
 
-          <button type="submit" style={{ marginTop: "40px",marginBottom: "16px"  }} className="btn-text" >
-            Create user
+          <button type="submit" style={{ marginTop: "40px", marginBottom: "16px" }} className="btn-text" >
+            Login
           </button>
 
-          <button className="btn" onClick={getUsers}>Get Users</button>
+          <button className="btn-text"  onClick={getUsers}>Get Users</button>
         </form>
+        <form id="loginForm" style={{ padding: "32px" }} onSubmit={login}>
+          <div className="form2">
+            <img src={neLogo} height="42px" width="24px" alt="Emblem" />
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <span style={{ fontWeight: 400, lineHeight: "18px" }}>महाराष्ट्र राज्य विधी सेवा</span>
+              <strong style={{ fontSize: "18px" }}>Maharashtra State Legal Services Authority</strong>
+              <span style={{ fontWeight: 400, lineHeight: "18px" }}>Government of Maharashtra</span>
+            </div>
+          </div>
 
+          <div className="formTitle">Create your account!</div>
 
+          <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+              <label htmlFor="email" className="formFieldLabel">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
 
+            <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+              <label htmlFor="password" className="formFieldLabel">Password</label>
+              <input type="password" id="password" name="password" required />
+            </div>
 
+            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+              <input type="checkbox" name="RememberMe" id="RememberMe" className="checkBoxStyle2" />
+              <label htmlFor="RememberMe" className="formFieldLabel">Remember Me</label>
+            </div>
+          </div>
+
+          <button type="submit" style={{ marginTop: "40px", marginBottom: "16px" }} className="btn-text" >
+            Signup
+          </button>
+
+          <button className="btn-text"  onClick={getUsers}>Get Users</button>
+        </form>
       </div>
     </>
   );
