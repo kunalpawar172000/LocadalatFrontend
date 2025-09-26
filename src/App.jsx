@@ -153,7 +153,7 @@ const App = () => {
             Signup
           </button>
 
-          <button className="btn-text" onClick={getUsers}>Get Users</button>
+          <button type="button" className="btn-text" onClick={getUsers}>Get Users</button>
         </form>
       </div>
     </>
