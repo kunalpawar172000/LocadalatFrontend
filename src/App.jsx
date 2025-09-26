@@ -9,7 +9,7 @@ const App = () => {
     const password = document.getElementById("password").value;
 
     // Dummy API endpoint
-    const apiUrl = "http://localhost:8000/api/user/profile";
+    const apiUrl = "https://server-eight-nu-19.vercel.app/";
 
     fetch(apiUrl, {
       method: "POST",
