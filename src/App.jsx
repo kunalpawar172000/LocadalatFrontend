@@ -9,7 +9,7 @@ const App = () => {
     const password = document.getElementById("password").value;
 
     // Dummy API endpoint
-    const apiUrl = "https://server-eight-nu-19.vercel.app/";
+    const apiUrl = "https://server-eight-nu-19.vercel.app/api/user/create";
 
     fetch(apiUrl, {
       method: "POST",
@@ -24,7 +24,7 @@ const App = () => {
       .then(response => response.json())
       .then(data => {
         console.log(data);
-        
+
         if (data?.isSuccess) {
           alert(data?.message);
           console.log("Response from API:", data);
@@ -42,7 +42,7 @@ const App = () => {
   }
 
   const getUsers = () => {
-    fetch("http://localhost:8000/api/user/profile").then((res) => res.JSON()).then((res) => console.log(res))
+    fetch("https://server-eight-nu-19.vercel.app/api/user/profile").then((res) => res.JSON()).then((res) => console.log(res))
   }
 
   return (
@@ -78,12 +78,14 @@ const App = () => {
           </div>
 
           <button type="submit" style={{ marginTop: "40px" }} className="btn-text">
-            Login
+            Create user
           </button>
+
+          <button className="btn" onClick={getUsers}>Get Users</button>
         </form>
 
 
-        <button className="btn" onClick={getUsers}>Get Users</button>
+
 
       </div>
     </>
