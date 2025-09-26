@@ -118,9 +118,9 @@ const App = () => {
             Login
           </button>
 
-          <button className="btn-text"  onClick={getUsers}>Get Users</button>
+          <button className="btn-text" onClick={getUsers}>Get Users</button>
         </form>
-        <form id="loginForm" style={{ padding: "32px" }} onSubmit={login}>
+        <form id="loginForm" style={{ padding: "32px" }} onSubmit={create}>
           <div className="form2">
             <img src={neLogo} height="42px" width="24px" alt="Emblem" />
             <div style={{ display: "flex", flexDirection: "column" }}>
@@ -153,7 +153,7 @@ const App = () => {
             Signup
           </button>
 
-          <button className="btn-text"  onClick={create}>Get Users</button>
+          <button className="btn-text" onClick={getUsers}>Get Users</button>
         </form>
       </div>
     </>
