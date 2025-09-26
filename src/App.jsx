@@ -79,7 +79,7 @@ const App = () => {
   }
 
   const getUsers = () => {
-    fetch("https://server-eight-nu-19.vercel.app/api/user/profile").then((res) => res.JSON()).then((res) => console.log(res))
+    fetch("https://server-eight-nu-19.vercel.app/api/user/profile").then((res) => res.json()).then((res) => console.log(res?.data))
   }
 
   return (
@@ -118,7 +118,7 @@ const App = () => {
             Login
           </button>
 
-          <button className="btn-text" onClick={getUsers}>Get Users</button>
+          <button type="button" className="btn-text" onClick={getUsers}>Get Users</button>
         </form>
         <form id="loginForm" style={{ padding: "32px" }} onSubmit={create}>
           <div className="form2">
