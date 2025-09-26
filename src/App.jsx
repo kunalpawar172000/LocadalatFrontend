@@ -77,7 +77,7 @@ const App = () => {
             </div>
           </div>
 
-          <button type="submit" style={{ marginTop: "40px" }} className="btn-text">
+          <button type="submit" style={{ marginTop: "40px",marginBottom: "16px"  }} className="btn-text" >
             Create user
           </button>
 
