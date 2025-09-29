@@ -11,7 +11,7 @@ const App = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch("https://server-eight-nu-19.vercel.app/api/user/login", {
+      const response = await fetch("http://localhost:8000/api/user/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -40,7 +40,7 @@ const App = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch("https://server-eight-nu-19.vercel.app/api/user/create", {
+      const response = await fetch("http://localhost:8000/api/user/create", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -65,7 +65,7 @@ const App = () => {
 
   const getUsers = async () => {
     try {
-      const res = await fetch("https://server-eight-nu-19.vercel.app/api/user/profile");
+      const res = await fetch("http://localhost:8000/api/user/profile");
       const data = await res.json();
       console.log("Users:", data?.data);
     } catch (error) {
