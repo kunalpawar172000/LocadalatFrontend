@@ -11,7 +11,8 @@ const App = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch("https://server-eight-nu-19.vercel.app/api/user/login", {
+      console.log(process.env.REACT_APP_API_BASEURL);
+      const response = await fetch(`${process.env.REACT_APP_API_BASEURL}/api/user/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -65,7 +66,8 @@ const App = () => {
 
   const getUsers = async () => {
     try {
-      const res = await fetch("https://server-eight-nu-19.vercel.app/api/user/profile");
+      
+      const res = await fetch(`${process.env.REACT_APP_API_BASEURL}/api/user/profile`);
       const data = await res.json();
       console.log("Users:", data?.data);
     } catch (error) {
@@ -119,49 +121,6 @@ const App = () => {
         </button>
       </form>
 
-      {/* Signup Form */}
-      <form style={{ padding: "32px" }} onSubmit={signup}>
-        <div className="form2">
-          <img src={neLogo} height="42px" width="24px" alt="Emblem" />
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <span style={{ fontWeight: 400, lineHeight: "18px" }}>महाराष्ट्र राज्य विधी सेवा</span>
-            <strong style={{ fontSize: "18px" }}>Maharashtra State Legal Services Authority</strong>
-            <span style={{ fontWeight: 400, lineHeight: "18px" }}>Government of Maharashtra</span>
-          </div>
-        </div>
-
-        <div className="formTitle">Create your account!</div>
-
-        <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-          <div>
-            <label className="formFieldLabel">Email</label>
-            <input
-              type="email"
-              value={signupEmail}
-              onChange={(e) => setSignupEmail(e.target.value)}
-              required
-            />
-          </div>
-
-          <div>
-            <label className="formFieldLabel">Password</label>
-            <input
-              type="password"
-              value={signupPassword}
-              onChange={(e) => setSignupPassword(e.target.value)}
-              required
-            />
-          </div>
-        </div>
-
-        <button type="submit" style={{ marginTop: "40px", marginBottom: "16px" }} className="btn-text">
-          Signup
-        </button>
-
-        <button type="button" className="btn-text" onClick={getUsers}>
-          Get Users
-        </button>
-      </form>
     </div>
   );
 };
