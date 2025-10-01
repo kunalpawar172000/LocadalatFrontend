@@ -66,6 +66,7 @@ const App = () => {
 
   const getUsers = async () => {
     try {
+      
       const res = await fetch(`${process.env.REACT_APP_API_BASEURL}/api/user/profile`);
       const data = await res.json();
       console.log("Users:", data?.data);
