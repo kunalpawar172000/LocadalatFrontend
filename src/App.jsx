@@ -12,22 +12,26 @@ const App = () => {
 
     try {
       console.log(process.env.REACT_APP_API_BASEURL);
-      const response = await fetch(`${process.env.REACT_APP_API_BASEURL}/api/user/login`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: loginEmail,
-          password: loginPassword,
-        }),
-      });
+
+      const response = await fetch(
+        `${process.env.REACT_APP_API_BASEURL}/api/user/login`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: loginEmail,
+            password: loginPassword,
+          }),
+          credentials: "include", // ✅ include cookies
+        }
+      );
 
       const data = await response.json();
       console.log("Login Response:", data);
 
       if (data?.isSuccess) {
         alert(data.message);
-        // localStorage.setItem("token", data.responseData?.token);
-        // window.location.href = "https://your-dashboard-url.com";
+        // No need to store token manually; cookie is sent automatically
       } else {
         alert(data.message);
       }
@@ -36,6 +40,7 @@ const App = () => {
       alert("Error submitting login.");
     }
   };
+
 
   const signup = async (event) => {
     event.preventDefault();
@@ -66,13 +71,24 @@ const App = () => {
 
   const getUsers = async () => {
     try {
-      const res = await fetch(`${process.env.REACT_APP_API_BASEURL}/api/user/profile`);
+      const res = await fetch(
+        `${process.env.REACT_APP_API_BASEURL}/api/user/profile`,
+        {
+          method: "GET",
+          credentials: "include", // ensures cookies are sent
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
       const data = await res.json();
       console.log("Users:", data?.data);
     } catch (error) {
       console.error("Error fetching users:", error);
     }
   };
+
 
   return (
     <div className="formdiv">
